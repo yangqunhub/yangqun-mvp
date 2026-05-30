@@ -46,10 +46,10 @@ export default function HomePage() {
           </p>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem", justifyContent: "center" }}>
-            <Link href="/services" style={{ display: "inline-block", padding: "1rem 2rem", backgroundColor: colors.primary, color: "white", borderRadius: "9999px", fontWeight: "500", boxShadow: `0 8px 32px rgba(139,115,85,0.2)` }}>
+            <Link href="/services.html" style={{ display: "inline-block", padding: "1rem 2rem", backgroundColor: colors.primary, color: "white", borderRadius: "9999px", fontWeight: "500", boxShadow: `0 8px 32px rgba(139,115,85,0.2)` }}>
               了解服务流程
             </Link>
-            <Link href="/about" style={{ display: "inline-block", padding: "1rem 2rem", background: "rgba(255,255,255,0.7)", backdropFilter: "blur(20px)", color: colors.text, borderRadius: "9999px", fontWeight: "500", border: "1px solid rgba(255,255,255,0.3)" }}>
+            <Link href="/about.html" style={{ display: "inline-block", padding: "1rem 2rem", background: "rgba(255,255,255,0.7)", backdropFilter: "blur(20px)", color: colors.text, borderRadius: "9999px", fontWeight: "500", border: "1px solid rgba(255,255,255,0.3)" }}>
               关于我
             </Link>
           </div>
@@ -133,7 +133,7 @@ export default function HomePage() {
           <p style={{ fontSize: "1.125rem", marginBottom: "2rem", color: colors.textSecondary }}>
             你的第一个案例，就是你自己。先把自己调理好，这是最硬核的信任背书。
           </p>
-          <Link href="/contact" style={{ display: "inline-block", padding: "1rem 2.5rem", backgroundColor: colors.primary, color: "white", borderRadius: "9999px", fontWeight: "500", boxShadow: `0 8px 32px rgba(139,115,85,0.2)` }}>
+          <Link href="/contact.html" style={{ display: "inline-block", padding: "1rem 2.5rem", backgroundColor: colors.primary, color: "white", borderRadius: "9999px", fontWeight: "500", boxShadow: `0 8px 32px rgba(139,115,85,0.2)` }}>
             联系我，开始咨询
           </Link>
         </div>

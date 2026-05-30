@@ -3,27 +3,34 @@ const path = require("path");
 
 const outDir = path.join(__dirname, "..", "out");
 
-const copyHtmlToSubdir = (name) => {
-  // 先检查是否有 .html 文件
-  const src = path.join(outDir, `${name}.html`);
-  const destDir = path.join(outDir, name);
-  const dest = path.join(destDir, "index.html");
+// 确保 HTML 文件路径与 Next.js 静态导出匹配
+const pages = ["about", "contact", "services", "system", "journey"];
 
-  if (fs.existsSync(src) && !fs.existsSync(dest)) {
-    if (!fs.existsSync(destDir)) {
-      fs.mkdirSync(destDir, { recursive: true });
+pages.forEach((page) => {
+  const htmlPath = path.join(outDir, `${page}.html`);
+  const dirPath = path.join(outDir, page);
+  const indexPath = path.join(dirPath, "index.html");
+
+  // 如果有 page.html，复制到 page/index.html
+  if (fs.existsSync(htmlPath)) {
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath, { recursive: true });
     }
-    fs.copyFileSync(src, dest);
-    console.log(`✓ Copied ${name}.html to ${name}/index.html`);
+    const content = fs.readFileSync(htmlPath, "utf8");
+    fs.writeFileSync(indexPath, content);
+    console.log(`✓ Copied ${page}.html → ${page}/index.html`);
   }
-};
+});
 
-console.log("Copying HTML files to subdirectories for GitHub Pages...");
+console.log("\nFiles in out directory:");
+console.log(fs.readdirSync(outDir).filter(f => f.endsWith(".html")));
 
-copyHtmlToSubdir("about");
-copyHtmlToSubdir("contact");
-copyHtmlToSubdir("services");
-copyHtmlToSubdir("system");
-copyHtmlToSubdir("journey");
+console.log("\nFiles in subdirectories:");
+pages.forEach(page => {
+  const dir = path.join(outDir, page);
+  if (fs.existsSync(dir)) {
+    console.log(`${page}/:`, fs.readdirSync(dir));
+  }
+});
 
-console.log("Done!");
+console.log("\nDone!");

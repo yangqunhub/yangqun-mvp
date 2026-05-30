@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { useState } from "react";
 
+// 链接指向 .html 文件
 const navLinks = [
   { href: "/", label: "首页" },
-  { href: "/about", label: "关于我" },
-  { href: "/system", label: "我的系统" },
-  { href: "/services", label: "服务流程" },
-  { href: "/journey", label: "成长轨迹" },
-  { href: "/contact", label: "联系方式" },
+  { href: "/about.html", label: "关于我" },
+  { href: "/system.html", label: "我的系统" },
+  { href: "/services.html", label: "服务流程" },
+  { href: "/journey.html", label: "成长轨迹" },
+  { href: "/contact.html", label: "联系方式" },
 ];
 
 const colors = {

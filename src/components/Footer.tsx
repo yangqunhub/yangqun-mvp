@@ -32,9 +32,9 @@ export default function Footer() {
             </h4>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               <Link href="/" style={{ fontSize: "0.875rem", color: colors.textSecondary }}>首页</Link>
-              <Link href="/about" style={{ fontSize: "0.875rem", color: colors.textSecondary }}>关于我</Link>
-              <Link href="/system" style={{ fontSize: "0.875rem", color: colors.textSecondary }}>我的系统</Link>
-              <Link href="/services" style={{ fontSize: "0.875rem", color: colors.textSecondary }}>服务流程</Link>
+              <Link href="/about.html" style={{ fontSize: "0.875rem", color: colors.textSecondary }}>关于我</Link>
+              <Link href="/system.html" style={{ fontSize: "0.875rem", color: colors.textSecondary }}>我的系统</Link>
+              <Link href="/services.html" style={{ fontSize: "0.875rem", color: colors.textSecondary }}>服务流程</Link>
             </div>
           </div>
 
