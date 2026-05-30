@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
+/* 定义 CSS 变量 */
 :root {
-  /* 玻璃拟态风格配色 */
   --color-primary: #8B7355;
   --color-primary-light: #A68B6A;
   --color-secondary: #6B8E5A;
@@ -14,7 +14,8 @@
   --color-shadow: rgba(139, 115, 85, 0.1);
 }
 
-@theme inline {
+/* Tailwind 主题配置 */
+@theme {
   --color-primary: var(--color-primary);
   --color-primary-light: var(--color-primary-light);
   --color-secondary: var(--color-secondary);
@@ -50,12 +51,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 滚动行为 */
 html {
   scroll-behavior: smooth;
 }
 
-/* 动画 */
 @keyframes fadeInUp {
   from {
     opacity: 0;
