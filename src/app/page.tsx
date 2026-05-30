@@ -57,49 +57,62 @@ const pillars = [
   },
 ];
 
+// 硬编码颜色
+const colors = {
+  primary: "#8B7355",
+  primaryLight: "#A68B6A",
+  secondary: "#6B8E5A",
+  background: "#FDFBF8",
+  surface: "#F5F0EB",
+  text: "#2D2A26",
+  textSecondary: "#6B6560",
+};
+
 export default function HomePage() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" style={{ backgroundColor: colors.background, color: colors.text }}>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
         {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-background)] via-[var(--color-surface)] to-[var(--color-background)]" />
+        <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom right, ${colors.background}, ${colors.surface}, ${colors.background})` }} />
 
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           {/* 标签 */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 glass animate-fade-in">
-            <span className="w-2 h-2 bg-[var(--color-secondary)] rounded-full animate-pulse" />
-            <span className="text-sm text-[var(--color-text-secondary)]">正在服务真实客户</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 mb-8" style={{ backgroundColor: "rgba(255, 255, 255, 0.7)", backdropFilter: "blur(20px)", borderRadius: "20px", border: "1px solid rgba(255, 255, 255, 0.3)" }}>
+            <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: colors.secondary }} />
+            <span className="text-sm" style={{ color: colors.textSecondary }}>正在服务真实客户</span>
           </div>
 
           {/* 主标题 */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[var(--color-text)] mb-6 animate-fade-in-up">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6" style={{ color: colors.text }}>
             你好，我是杨泽群
           </h1>
 
           {/* 副标题 */}
-          <h2 className="text-xl md:text-2xl text-[var(--color-primary)] font-medium mb-8 animate-fade-in-up delay-100">
+          <h2 className="text-xl md:text-2xl font-medium mb-8" style={{ color: colors.primary }}>
             健康复利导师 × 数字建造者
           </h2>
 
           {/* 价值主张 */}
-          <p className="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed mb-12 max-w-2xl mx-auto animate-fade-in-up delay-200">
+          <p className="text-lg md:text-xl leading-relaxed mb-12 max-w-2xl mx-auto" style={{ color: colors.textSecondary }}>
             用食品科学管好你的身体，<br className="hidden md:block" />
             用复利思维管好你的资产，<br className="hidden md:block" />
             用 AI 工具管好你的系统。
           </p>
 
           {/* CTA */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/services"
-              className="px-8 py-4 bg-[var(--color-primary)] text-white rounded-full font-medium hover:bg-[var(--color-primary-light)] transition-all hover:scale-105 shadow-lg shadow-[var(--color-primary)]/20"
+              className="px-8 py-4 rounded-full font-medium transition-all hover:scale-105"
+              style={{ backgroundColor: colors.primary, color: "white", boxShadow: `0 8px 32px rgba(139, 115, 85, 0.2)` }}
             >
               了解服务流程
             </Link>
             <Link
               href="/about"
-              className="px-8 py-4 glass text-[var(--color-text)] rounded-full font-medium hover:bg-white/80 transition-all"
+              className="px-8 py-4 rounded-full font-medium transition-all"
+              style={{ backgroundColor: "rgba(255, 255, 255, 0.7)", backdropFilter: "blur(20px)", border: "1px solid rgba(255, 255, 255, 0.3)", borderRadius: "20px", color: colors.text }}
             >
               关于我
             </Link>
@@ -108,64 +121,54 @@ export default function HomePage() {
 
         {/* 滚动提示 */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-[var(--color-text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-6 h-6" style={{ color: colors.textSecondary }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </div>
       </section>
 
       {/* Service Process Section */}
-      <section className="py-20 px-6 bg-[var(--color-surface)]">
+      <section className="py-20 px-6" style={{ backgroundColor: colors.surface }}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: colors.text }}>
               我的服务流程
             </h2>
-            <p className="text-[var(--color-text-secondary)] max-w-xl mx-auto">
+            <p className="max-w-xl mx-auto" style={{ color: colors.textSecondary }}>
               不是给你一个方案就结束，而是帮你构建一套会自己运转的系统
             </p>
           </div>
 
           {/* 流程图 */}
-          <div className="relative">
-            {/* 连接线（桌面端） */}
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-[var(--color-primary)]/20 via-[var(--color-primary)]/40 to-[var(--color-primary)]/20" />
-
-            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {serviceSteps.map((item, index) => (
-                <div
-                  key={item.step}
-                  className="relative group"
-                >
-                  <div className="glass p-6 hover:scale-105 transition-transform cursor-default">
-                    {/* 步骤号 */}
-                    <div className="absolute -top-3 left-6 px-3 py-1 glass text-xs font-medium text-[var(--color-primary)]">
-                      {item.step}
-                    </div>
-
-                    {/* 图标 */}
-                    <div className="text-4xl mb-4">{item.icon}</div>
-
-                    {/* 标题 */}
-                    <h3 className="text-lg font-semibold text-[var(--color-text)] mb-2">
-                      {item.title}
-                    </h3>
-
-                    {/* 描述 */}
-                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {serviceSteps.map((item) => (
+              <div key={item.step} className="p-6 transition-transform cursor-default hover:scale-105" style={{ backgroundColor: "rgba(255, 255, 255, 0.7)", backdropFilter: "blur(20px)", border: "1px solid rgba(255, 255, 255, 0.3)", borderRadius: "20px", boxShadow: "0 8px 32px rgba(139, 115, 85, 0.1)" }}>
+                {/* 步骤号 */}
+                <div className="absolute -top-3 left-6 px-3 py-1 text-xs font-medium" style={{ backgroundColor: "rgba(255, 255, 255, 0.7)", backdropFilter: "blur(20px)", border: "1px solid rgba(255, 255, 255, 0.3)", borderRadius: "12px", color: colors.primary }}>
+                  {item.step}
                 </div>
-              ))}
-            </div>
+
+                {/* 图标 */}
+                <div className="text-4xl mb-4">{item.icon}</div>
+
+                {/* 标题 */}
+                <h3 className="text-lg font-semibold mb-2" style={{ color: colors.text }}>
+                  {item.title}
+                </h3>
+
+                {/* 描述 */}
+                <p className="text-sm leading-relaxed" style={{ color: colors.textSecondary }}>
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
 
           {/* 核心方法论 */}
           <div className="mt-16 text-center">
-            <div className="inline-block glass px-8 py-4">
-              <p className="text-lg md:text-xl text-[var(--color-text)]">
-                <span className="text-[var(--color-primary)] font-semibold">核心理念：</span>
+            <div className="inline-block px-8 py-4" style={{ backgroundColor: "rgba(255, 255, 255, 0.7)", backdropFilter: "blur(20px)", border: "1px solid rgba(255, 255, 255, 0.3)", borderRadius: "20px" }}>
+              <p className="text-lg md:text-xl" style={{ color: colors.text }}>
+                <span className="font-semibold" style={{ color: colors.primary }}>核心理念：</span>
                 构建反馈系统，而不是设定目标
               </p>
             </div>
@@ -177,10 +180,10 @@ export default function HomePage() {
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: colors.text }}>
               三大支柱系统
             </h2>
-            <p className="text-[var(--color-text-secondary)] max-w-xl mx-auto">
+            <p className="max-w-xl mx-auto" style={{ color: colors.textSecondary }}>
               任何单一领域的人都没法跟你竞争，因为你的价值在跨领域的整合能力里
             </p>
           </div>
@@ -189,12 +192,16 @@ export default function HomePage() {
             {pillars.map((pillar, index) => (
               <div
                 key={pillar.title}
-                className="glass p-8 hover:scale-105 transition-transform cursor-default"
+                className="p-8 transition-transform cursor-default hover:scale-105"
                 style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.7)",
+                  backdropFilter: "blur(20px)",
+                  border: "1px solid rgba(255, 255, 255, 0.3)",
+                  borderRadius: "20px",
+                  boxShadow: "0 8px 32px rgba(139, 115, 85, 0.1)",
                   animationDelay: `${index * 100}ms`,
                 }}
               >
-                {/* 标题区域 */}
                 <div className="mb-6">
                   <div
                     className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl mb-4"
@@ -202,20 +209,18 @@ export default function HomePage() {
                   >
                     {pillar.title === "健康支柱" ? "🌿" : pillar.title === "财富支柱" ? "💰" : "⚡"}
                   </div>
-                  <h3 className="text-xl font-bold text-[var(--color-text)] mb-1">
+                  <h3 className="text-xl font-bold mb-1" style={{ color: colors.text }}>
                     {pillar.title}
                   </h3>
-                  <p className="text-sm text-[var(--color-text-secondary)]">
+                  <p className="text-sm" style={{ color: colors.textSecondary }}>
                     {pillar.subtitle}
                   </p>
                 </div>
 
-                {/* 描述 */}
-                <p className="text-[var(--color-text-secondary)] leading-relaxed mb-6">
+                <p className="leading-relaxed mb-6" style={{ color: colors.textSecondary }}>
                   {pillar.description}
                 </p>
 
-                {/* 关键词标签 */}
                 <div className="flex flex-wrap gap-2">
                   {pillar.keywords.map((keyword) => (
                     <span
@@ -237,17 +242,18 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-[var(--color-surface)] to-[var(--color-background)]">
+      <section className="py-20 px-6" style={{ background: `linear-gradient(to bottom right, ${colors.surface}, ${colors.background})` }}>
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-text)] mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: colors.text }}>
             准备好开始了吗？
           </h2>
-          <p className="text-lg text-[var(--color-text-secondary)] mb-8">
+          <p className="text-lg mb-8" style={{ color: colors.textSecondary }}>
             你的第一个案例，就是你自己。先把自己调理好，这是最硬核的信任背书。
           </p>
           <Link
             href="/contact"
-            className="inline-block px-10 py-4 bg-[var(--color-primary)] text-white rounded-full font-medium hover:bg-[var(--color-primary-light)] transition-all hover:scale-105 shadow-lg shadow-[var(--color-primary)]/20"
+            className="inline-block px-10 py-4 rounded-full font-medium transition-all hover:scale-105"
+            style={{ backgroundColor: colors.primary, color: "white", boxShadow: `0 8px 32px rgba(139, 115, 85, 0.2)` }}
           >
             联系我，开始咨询
           </Link>

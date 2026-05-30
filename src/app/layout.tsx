@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN" className={`${inter.variable} ${notoSansSC.variable}`}>
-      <body className="min-h-screen flex flex-col bg-[var(--color-background)]">
+      <body className="min-h-screen flex flex-col" style={{ backgroundColor: "#FDFBF8", color: "#2D2A26" }}>
         <Header />
         <main className="flex-1 pt-20">
           {children}
