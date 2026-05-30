@@ -4,6 +4,7 @@ const path = require("path");
 const outDir = path.join(__dirname, "..", "out");
 
 const copyHtmlToSubdir = (name) => {
+  // 先检查是否有 .html 文件
   const src = path.join(outDir, `${name}.html`);
   const destDir = path.join(outDir, name);
   const dest = path.join(destDir, "index.html");
@@ -17,7 +18,7 @@ const copyHtmlToSubdir = (name) => {
   }
 };
 
-console.log("Copying HTML files to subdirectories...");
+console.log("Copying HTML files to subdirectories for GitHub Pages...");
 
 copyHtmlToSubdir("about");
 copyHtmlToSubdir("contact");
